@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DotNetProjectApp.Views.PostsListPage"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <!-- Grid for Navigation Buttons -->
+            <Grid Padding="10" BackgroundColor="#2c3e50" RowSpacing="10" ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Dashboard" 
+    BackgroundColor="#f39c12" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50" 
+    Clicked="OnViewDashboardClicked" 
+    Grid.Column="0" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+                <!-- Profile Button -->
+                <Button Text="Profile" 
+    BackgroundColor="#2980b9" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50"
+    Grid.Column="1" 
+    Clicked="OnProfileClicked" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+                <!-- List Post Button -->
+                <Button Text="List Post" 
+    BackgroundColor="#3498db" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50" 
+    Clicked="OnViewPostClicked"
+    Grid.Column="2" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+                <!-- Friend List Button -->
+                <Button Text="Friend List" 
+    BackgroundColor="#1abc9c" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50" 
+    Clicked="OnViewFollowedUsersClicked" 
+    Grid.Column="3"
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+                <!-- Log Out Button -->
+                <Button Text="Log Out" 
+    BackgroundColor="#e74c3c" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50"
+    Clicked="OnLogOutClicked" 
+    Grid.Column="4" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+                <Button Text="Message" 
+   BackgroundColor="Green" 
+   TextColor="White" 
+   FontSize="16" 
+   HeightRequest="50"
+   Clicked="OnMessageClicked" 
+   Grid.Column="5" 
+   HorizontalOptions="Center" 
+   Padding="10" />
+
+
+                <Button Text="Received Message" 
+   BackgroundColor="DarkGreen" 
+   TextColor="White" 
+   FontSize="16" 
+   HeightRequest="50"
+   Clicked="OnReceivedMessageClicked" 
+   Grid.Column="6" 
+   HorizontalOptions="Center" 
+   Padding="10" />
+            </Grid>
+
+
+
+            <!-- Create Post Button -->
+            <Button Text="Create Post" 
+                    TextColor="White" 
+                    BackgroundColor="#3498db" 
+                    HeightRequest="50" 
+                    Clicked="OnCreatePostClicked" 
+                    Margin="0,20" 
+                    CornerRadius="5" />
+
+            <!-- Your Posts Label -->
+            <Label Text="Your Posts" 
+                   FontSize="30" 
+                   HorizontalOptions="Center" 
+                   Margin="0,20" />
+
+            <!-- Posts ListView -->
+            <ListView x:Name="PostsListView" 
+                      ItemsSource="{Binding Posts}" 
+                      SeparatorVisibility="None" 
+                      Margin="0,10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!-- Fixed width for each card (Frame) -->
+                            <Frame Padding="15" 
+                                   Margin="10" 
+                                   BorderColor="#E1E1E1" 
+                                   HasShadow="True" 
+                                   CornerRadius="10" 
+                                   BackgroundColor="White" 
+                                   WidthRequest="300"
+                                   HorizontalOptions="FillAndExpand">
+                                <StackLayout Spacing="10" HorizontalOptions="FillAndExpand">
+                                    <!-- Caption Label -->
+
+                                    <Label Text="{Binding CreatedAt}" 
+                                     FontSize="12" 
+                                     TextColor="Gray" 
+                                     HorizontalOptions="EndAndExpand" />            
+                                    <!-- Image with rounded corner -->
+                                    <Image Source="{Binding ImagePath}" 
+                                           HeightRequest="300" 
+                                           Aspect="AspectFill" 
+                                           Margin="0,10"
+                                           BackgroundColor="#F0F0F0" 
+                                           
+                                           HorizontalOptions="FillAndExpand" />
+
+                                    <Label TextColor="Black" 
+                                        Text="{Binding Caption}" 
+                                        FontSize="20" 
+                                        FontAttributes="Bold" 
+                                        HorizontalOptions="FillAndExpand" />          
+
+                                    <!-- Created Date Label -->
+                                  
+
+                                    <!-- Edit and Delete Buttons -->
+                                    <StackLayout Orientation="Horizontal" 
+                                                 HorizontalOptions="FillAndExpand" 
+                                                 Spacing="10">
+                                        <Button Text="Edit" 
+                                                BackgroundColor="#3498db" 
+                                                TextColor="White" 
+                                                Clicked="OnEditPostClicked" 
+                                                CommandParameter="{Binding .}" 
+                                                HorizontalOptions="Start" />
+                                        <Button Text="Delete" 
+                                                BackgroundColor="#e74c3c" 
+                                                TextColor="White" 
+                                                Clicked="OnDeletePostClicked" 
+                                                CommandParameter="{Binding .}" 
+                                                HorizontalOptions="End" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

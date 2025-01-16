@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DotNetProjectApp.Views.CreatePostPage"
+             BackgroundColor="White"
+             Title="Create Post Page">
+
+    <StackLayout>
+
+        <Grid Padding="10" BackgroundColor="#2c3e50" RowSpacing="10" ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Dashboard" 
+    BackgroundColor="#f39c12" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50" 
+    Clicked="OnViewDashboardClicked" 
+    Grid.Column="0" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+            <!-- Profile Button -->
+            <Button Text="Profile" 
+    BackgroundColor="#2980b9" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50"
+    Grid.Column="1" 
+    Clicked="OnProfileClicked" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+            <!-- List Post Button -->
+            <Button Text="List Post" 
+    BackgroundColor="#3498db" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50" 
+    Clicked="OnViewPostClicked"
+    Grid.Column="2" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+            <!-- Friend List Button -->
+            <Button Text="Friend List" 
+    BackgroundColor="#1abc9c" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50" 
+    Clicked="OnViewFollowedUsersClicked" 
+    Grid.Column="3"
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+            <!-- Log Out Button -->
+            <Button Text="Log Out" 
+    BackgroundColor="#e74c3c" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50"
+    Clicked="OnLogOutClicked" 
+    Grid.Column="4" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+            <Button Text="Message" 
+   BackgroundColor="Green" 
+   TextColor="White" 
+   FontSize="16" 
+   HeightRequest="50"
+   Clicked="OnMessageClicked" 
+   Grid.Column="5" 
+   HorizontalOptions="Center" 
+   Padding="10" />
+
+
+            <Button Text="Received Message" 
+   BackgroundColor="DarkGreen" 
+   TextColor="White" 
+   FontSize="16" 
+   HeightRequest="50"
+   Clicked="OnReceivedMessageClicked" 
+   Grid.Column="6" 
+   HorizontalOptions="Center" 
+   Padding="10" />
+        </Grid>
+
+
+
+
+        <StackLayout Padding="30">
+        <Label Text="Create a Post" FontSize="30" HorizontalOptions="Center" />
+
+        <Entry TextColor="Black" x:Name="CaptionEntry" Placeholder="Enter your caption" />
+
+        <!-- Button to select an image -->
+        <Button Text="Select Image" Clicked="OnSelectImageClicked" />
+
+
+        <!-- Display the selected image -->
+        <Image x:Name="SelectedImage" WidthRequest="200" HeightRequest="200" />
+
+        <Button Text="Post" Clicked="OnPostClicked" />
+    </StackLayout>
+
+    </StackLayout>
+</ContentPage>

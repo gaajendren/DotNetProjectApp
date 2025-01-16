@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DotNetProjectApp.Views.EditPostPage"
+             BackgroundColor="#f5f5f5"
+             Title="Edit Post">
+
+    <StackLayout>
+        <Grid Padding="10" BackgroundColor="#2c3e50" RowSpacing="10" ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Dashboard" 
+    BackgroundColor="#f39c12" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50" 
+    Clicked="OnViewDashboardClicked" 
+    Grid.Column="0" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+            <!-- Profile Button -->
+            <Button Text="Profile" 
+    BackgroundColor="#2980b9" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50"
+    Grid.Column="1" 
+    Clicked="OnProfileClicked" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+            <!-- List Post Button -->
+            <Button Text="List Post" 
+    BackgroundColor="#3498db" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50" 
+    Clicked="OnViewPostClicked"
+    Grid.Column="2" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+            <!-- Friend List Button -->
+            <Button Text="Friend List" 
+    BackgroundColor="#1abc9c" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50" 
+    Clicked="OnViewFollowedUsersClicked" 
+    Grid.Column="3"
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+            <!-- Log Out Button -->
+            <Button Text="Log Out" 
+    BackgroundColor="#e74c3c" 
+    TextColor="White" 
+    FontSize="16" 
+    HeightRequest="50"
+    Clicked="OnLogOutClicked" 
+    Grid.Column="4" 
+    HorizontalOptions="Center" 
+    Padding="10" />
+
+            <Button Text="Message" 
+   BackgroundColor="Green" 
+   TextColor="White" 
+   FontSize="16" 
+   HeightRequest="50"
+   Clicked="OnMessageClicked" 
+   Grid.Column="5" 
+   HorizontalOptions="Center" 
+   Padding="10" />
+
+
+            <Button Text="Received Message" 
+   BackgroundColor="DarkGreen" 
+   TextColor="White" 
+   FontSize="16" 
+   HeightRequest="50"
+   Clicked="OnReceivedMessageClicked" 
+   Grid.Column="6" 
+   HorizontalOptions="Center" 
+   Padding="10" />
+        </Grid>
+
+
+
+
+        <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+
+            <!-- Header -->
+            <Label Text="Edit Your Post"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="#2c3e50"
+                   HorizontalOptions="Center" />
+
+            <!-- Post Caption -->
+            <StackLayout>
+                <Label Text="Caption"
+                       FontSize="16"
+                       TextColor="#34495e"
+                       FontAttributes="Bold"
+                       Margin="0,0,0,5" />
+                <Editor x:Name="CaptionEntry"
+                        HeightRequest="100"
+                        BackgroundColor="White"
+                        TextColor="#2c3e50"
+                        Placeholder="Enter your caption here..."
+                        FontSize="16"
+                        Margin="0,0,0,10" />
+            </StackLayout>
+
+            <!-- Image Picker -->
+            <StackLayout>
+                <Label Text="Image"
+                       FontSize="16"
+                       TextColor="#34495e"
+                       FontAttributes="Bold"
+                       Margin="0,0,0,5" />
+
+                <!-- Image Preview -->
+                <Image x:Name="ImagePreview"
+                       HeightRequest="200"
+                       Aspect="AspectFill"
+                       BackgroundColor="#ecf0f1"
+                       HorizontalOptions="FillAndExpand"
+                       Margin="0,0,0,10" />
+
+                <!-- Image Picker Button -->
+                <Button Text="Choose Image"
+                        BackgroundColor="#3498db"
+                        TextColor="White"
+                        FontSize="16"
+                        HeightRequest="50"
+                        CornerRadius="10"
+                        Clicked="OnPickImageClicked" />
+            </StackLayout>
+
+            <!-- Save Button -->
+            <Button Text="Save Changes"
+                    BackgroundColor="#27ae60"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    CornerRadius="10"
+                    Clicked="OnSaveClicked" />
+
+            <!-- Cancel Button -->
+            <Button Text="Cancel"
+                    BackgroundColor="#e74c3c"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    CornerRadius="10"
+                    Clicked="OnCancelClicked" />
+        </StackLayout>
+     
+</ScrollView>
+        </StackLayout>
+</ContentPage>
